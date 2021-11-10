@@ -1,9 +1,9 @@
 export default class Snail {
-    constructor(x, y, v, target, cor) {
+    constructor(x, y, v, alvo, cor) {
         // Parâmetros iguais para cada caracol
         this.side = 3
 
-        // Variáveis do Caracol
+        // Variáveis da Cinemática Caracol
         this.x = x
         this.y = y
         this.v = {
@@ -15,14 +15,14 @@ export default class Snail {
         this.cor = cor
 
         // Caracol para o qual a velocidade aponta
-        this.target = target
+        this.alvo = alvo
     }
 
     update(time) {
         // Determinar a direção
         this.direction = {
-            x: this.target.x - this.x,
-            y: this.target.y - this.y
+            x: this.alvo.x - this.x,
+            y: this.alvo.y - this.y
         }
 
         //Decompor v em v.x e v.y
@@ -30,6 +30,7 @@ export default class Snail {
         this.v.x = Math.cos(this.theta) * this.v.abs
         this.v.y = Math.sin(this.theta) * this.v.abs
 
+        // Avançar de acordo com a velocidade
         this.x += this.v.x * time
         this.y += this.v.y * time
     }

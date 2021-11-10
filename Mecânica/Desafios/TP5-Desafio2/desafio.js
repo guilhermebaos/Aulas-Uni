@@ -1,11 +1,16 @@
 import Snail from './snail.js'
+import Quadrado from './quadrado.js'
 
 // Canvas
-const canvas = document.getElementById('mainCanvas')
-const ctx = canvas.getContext('2d')
+const snailCanvas = document.getElementById('lowerCanvas')
+const snailCtx = snailCanvas.getContext('2d')
+
+const quadCanvas = document.getElementById('higherCanvas')
+const quadCtx = quadCanvas.getContext('2d')
+
 
 // Constantes
-const colors = ['red', 'blue', 'green', 'black']
+const cores = ['red', 'rgb(10, 100, 230)', 'rgb(145, 200, 20)', 'black']
 const v = 50
 const l = 500
 const start = {
@@ -15,10 +20,10 @@ const start = {
 
 // Coordenadas dos caracóis, por ordem
 const coords = [
-    [50, 50],
-    [50 + l, 50],
-    [50 + l, 50 + l],
-    [50, 50 + l]
+    [start.x, start.y],
+    [start.x + l, start.y],
+    [start.x + l, start.y + l],
+    [start.x, start.y + l]
 ]
 
 // Criar os nossos caracóis
@@ -31,30 +36,48 @@ for(let n = 0; n < 4; n++) {
         coords[n][1],
         v,
         target,
-        colors[n]))
+        cores[n]))
 }
-snails[0].target = snails[3]
+snails[0].alvo = snails[3]
 
 
-let lastTime
-function loopSnails(time) {
-    if (lastTime === undefined) {
-        lastTime = time
+// Quadrado que une os caracóis
+const oQuadrado = new Quadrado(snails, 'rgb(255, 130, 35)')
+
+// Condições relativamente ao quadrado que une os caracóis
+let desenharQuadrado = true
+let apagarQuadrado = true
+
+let ultimoTempo
+function loopSnails(tempo) {
+    // Avançar o tempo
+    if (ultimoTempo === undefined) {
+        ultimoTempo = tempo
     }
+    let dTime = (tempo - ultimoTempo) / 1000
+    ultimoTempo = tempo
 
-    let dTime = (time - lastTime) / 1000
-    lastTime = time
 
+    // Desenhar os caracóis
     for(let i in snails) {
         snails[i].update(dTime)
-        snails[i].draw(ctx)
+        snails[i].draw(snailCtx)
     }
+
+    // Desenhar o quadrado que une os caracóis
+    if (desenharQuadrado) {
+        if (apagarQuadrado) quadCtx.clearRect(0, 0, quadCanvas.width, quadCanvas.height)
+        oQuadrado.draw(quadCtx)
+    }
+
+    // Parar se os caracóis estiverem muito próximos uns dos outros
     let mySnail = snails[0]
     if (mySnail.direction.x ** 2 + mySnail.direction.y ** 2 < 1) {
+        desenharQuadrado = false
         return
     }
 
     requestAnimationFrame(loopSnails)
 }
 
-loopSnails(0)
+window.setTimeout(requestAnimationFrame, 400, loopSnails)

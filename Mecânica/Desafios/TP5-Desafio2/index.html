@@ -11,10 +11,24 @@
         canvas {
             border: 1px solid black;
         }
+        .layer-canvas {
+            position: absolute;
+            top: 0px;
+            left: 0px;
+        }
+        .layer-canvas-container {
+            position: relative;
+            width: 100%;
+            height: fit-content;
+            margin: auto;
+        }
     </style>
 </head>
 <body>
     <h1>Desafio 2 da TP5</h1>
-    <canvas id="mainCanvas" width="600" height="600"></canvas>
+    <div class="layer-canvas-container">
+        <canvas id="higherCanvas" class="layer-canvas" width="600" height="600"></canvas>
+        <canvas id="lowerCanvas" class="layer-canvas" width="600" height="600"></canvas>
+    </div>
 </body>
 </html>
