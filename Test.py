@@ -1,4 +1,2 @@
-print(ord('z'))
-print(ord('a'))
-
-print(chr(91))
+b = frozenset(['a', 'b'])
+print(b)
