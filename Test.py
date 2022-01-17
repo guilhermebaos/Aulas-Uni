@@ -1,2 +1,2 @@
-b = frozenset(['a', 'b'])
-print(b)
+print(False ^ True)
+print(True ^ True)
