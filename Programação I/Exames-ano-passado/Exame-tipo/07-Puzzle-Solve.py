@@ -1,3 +1,7 @@
+prev_states = []
+SOLUTION = ((1, 1, 1), (2, 2, 2), (3, 3, 0))
+
+
 def puzzle_str(puzzle: tuple):
     '''
     Código Normal, abaixo está um one-liner
@@ -117,9 +121,6 @@ def puzzle_solve(p: tuple):
             execute_next += output
         execute = execute_next[:]
 
-
-prev_states = []
-SOLUTION = ((1, 1, 1), (2, 2, 2), (3, 3, 0))
 p = ((3, 3, 2), (1, 1, 0), (2, 2, 1))
 print(puzzle_moves(p, puzzle_solve(p)) == SOLUTION)
 p = ((0, 1, 1), (3, 3, 2), (2, 2, 1))
