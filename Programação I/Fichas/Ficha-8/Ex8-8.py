@@ -5,7 +5,7 @@ window = turtle.Screen()
 
 # Cria uma tartaruga chamada alex
 alex = turtle.Turtle()
-alex.speed(100000)
+alex.speed(1000)
 
 beggining = 200
 alex.penup()
@@ -21,6 +21,7 @@ def triangle(lado):
     for _ in range(3):
         alex.forward(lado)
         alex.left(120)
+
 
 def sierpinski(n, lado):
     if n == 0:
@@ -41,5 +42,5 @@ def sierpinski(n, lado):
     return
 
 
-sierpinski(8, 500)
+sierpinski(4, 500)
 input()
