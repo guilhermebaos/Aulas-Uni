@@ -59,5 +59,14 @@ def massa_molar(composto: str):
 
 
 # Ver a Massa Molar de um Composto
-m = massa_molar('H2O2')
-print(m)
+print("Escreva 0 para parar o programa!")
+while True:
+    composto = input("\n\nEscreva o composto cuja massa molar quer ver: ")
+    if composto == '0':
+        break
+    try:
+        m = massa_molar(composto)
+    except KeyError:
+        print("Composto inválido!")
+        m = "ERRO"
+    print(f"\nA massa molar do {composto} é {m:.2f} g/mol")
