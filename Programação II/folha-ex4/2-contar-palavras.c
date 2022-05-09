@@ -1,19 +1,24 @@
 #include <stdio.h>
 
 int main() {
-    int letras = 0;
+    int palavras = 0;
 
     int input = 0;
-    while (input != '\n') {
+    int input_anterior;
+    while (input != -1) {
+        input_anterior = input;
         input = getchar();
         
         // Ver se o caracter é uma letra
-        if (('A' <= input && input <= 'Z') || ('a' <= input && input <= 'z')) {
-            letras++;
+        if ((input_anterior != '\t' && input_anterior != '\n' && input_anterior != ' ')
+            &&
+            (input == '\t' || input == '\n' || input == ' ')
+            ) {
+            palavras++;
         }
     }
 
-    printf("A frase contém %d letras!\n\n", letras);
+    printf("A frase contém %d palavras!\n\n", palavras);
 
     return 0;
 }
