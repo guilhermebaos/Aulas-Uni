@@ -3,21 +3,21 @@
 
 #define MAX 1000
 
-int palindromo(char str[]);
+int isalphastr(char str[]);
 int mystrlen(char str[]);
 
 int main() {
     char text[MAX];
 
-    printf("\nVamos ver se uma cadeia de caracteres é um palíndromo! \n");
+    printf("\nVamos ver se uma cadeia de caracteres tem apenas letras! \n");
 
     printf("\nEscreva o texto: \n\n");
     fgets(text, MAX, stdin);
     
-    if (palindromo(text)) {
-        printf("O texto é um palíndromo!\n\n");
+    if (isalphastr(text)) {
+        printf("O texto tem apenas letras!\n\n");
     } else {
-        printf("O texto não é um palíndromo :(\n\n");
+        printf("O texto não tem apenas letras :(\n\n");
     }
 
     return 0;
@@ -36,15 +36,15 @@ int mystrlen(char str[]) {
     return str_len;
 }
 
-int palindromo(char str[]) {
+int isalphastr(char str[]) {
     int str_len = mystrlen(str);
 
     if (str_len == 0) {
         return 0;
     }
 
-    for (int i = 0; i < str_len / 2 ; i++) {
-        if (str[i] != str[str_len - i]) {
+    for (int i = 0; i < str_len; i++) {
+        if (!isalpha(str[i])) {
             return 0;
         }
     }

@@ -3,21 +3,21 @@
 
 #define MAX 1000
 
-int palindromo(char str[]);
+int hasdigit(char str[]);
 int mystrlen(char str[]);
 
 int main() {
     char text[MAX];
 
-    printf("\nVamos ver se uma cadeia de caracteres é um palíndromo! \n");
+    printf("\nVamos ver se uma cadeia de caracteres tem algum dígito! \n");
 
     printf("\nEscreva o texto: \n\n");
     fgets(text, MAX, stdin);
     
-    if (palindromo(text)) {
-        printf("O texto é um palíndromo!\n\n");
+    if (hasdigit(text)) {
+        printf("O texto tem algum dígito!\n\n");
     } else {
-        printf("O texto não é um palíndromo :(\n\n");
+        printf("O texto não tem nenhum dígito :(\n\n");
     }
 
     return 0;
@@ -36,17 +36,17 @@ int mystrlen(char str[]) {
     return str_len;
 }
 
-int palindromo(char str[]) {
+int hasdigit(char str[]) {
     int str_len = mystrlen(str);
 
     if (str_len == 0) {
         return 0;
     }
 
-    for (int i = 0; i < str_len / 2 ; i++) {
-        if (str[i] != str[str_len - i]) {
-            return 0;
+    for (int i = 0; i < str_len; i++) {
+        if ('0' <= str[i] && str[i] <= '9') {
+            return 1;
         }
     }
-    return 1;
+    return 0;
 }
