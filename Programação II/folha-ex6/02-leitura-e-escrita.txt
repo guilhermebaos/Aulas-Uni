@@ -1,0 +1,10 @@
+6.2
+a) Correto
+b) Incorreto
+c) Correto
+d) Incorreto (Funciona mas o resultado não é lá muito útil)
+e) Correto
+f) Correto
+g) Correto
+h) Incorreto (Funciona só porque estamos a formatar um inteiro como pointer)
+i) Incorreto (O mesmo que acima)
