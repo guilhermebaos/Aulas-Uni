@@ -17,9 +17,11 @@ int arr_input(int vec[]) {
     return index;
 }
 
-
 // Algoritmo de sort, que vai passando pelo array e ordena-o um par de cada vez
 // Vê cada par do array e troca a ordem do par se este estiver na ordem errada
+
+/*
+// Versão com índices
 void sort(int vec[], int size) {
     int desordenado = 1, temp;
     while (desordenado) {
@@ -33,6 +35,27 @@ void sort(int vec[], int size) {
             }
         }
     }
+}
+*/
+
+// Versão com pointers
+void sort(int *vec, int size) {
+    int desordenado;
+    while (desordenado) {
+        desordenado = 0;
+        for (int *p = vec; p - vec < size - 1; p++) {
+            if (*p > *(p+1)) {
+                int temp = *p;
+
+                *p = *(p+1);
+                *(p+1) = temp;
+                
+                desordenado = 1;
+            }
+        }
+    }
+
+    return;
 }
 
 int main() {
