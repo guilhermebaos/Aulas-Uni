@@ -17,7 +17,7 @@ int soma_diagonal2(int matriz[N][N]) {
     int total = 0;
 
     for (int i = 0; i < N; i++) {
-        total += matriz[i][N - i - 1];
+        total += matriz[i][N - 1 - i];
     }
 
     return total;

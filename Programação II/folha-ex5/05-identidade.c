@@ -2,19 +2,36 @@
 
 #define N 4
 
+/*
+// Versão com índices
 int identidade(int mat[N][N]) {
+    int diagonal = 0;
     for (int i = 0; i < N; i++) {
         for (int j = 0; j < N; j++) {
-            if (i == j) {
-                if (mat[i][j] != 1) return 0;
-            } else {
-                if (mat[i][j] != 0) return 0;
-            }
+            diagonal = i == j;
+
+            if (mat[i][j] != diagonal) return 0;
         }
     }
 
     return 1;
 }
+*/
+
+// Versão com pointers (uso indíces para variar o pointer)
+int identidade(int mat[N][N]) {
+    int diagonal = 0;
+    for (int i = 0; i < N; i++) {
+        for (int j = 0; j < N; j++) {
+            diagonal = i == j;
+            
+            if (*(*(mat + i) + j) != diagonal) return 0;
+        }
+    }
+
+    return 1;
+}
+
 
 int main() {
     int matriz[N][N] = {1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1};
