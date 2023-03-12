@@ -1,2 +1,2 @@
 # Aulas-Uni
- Repositório das aulas de Programação
+ Repositório dos programas desenvolvidos no âmbito da Licenciatura em Engenharia Física da Universidade do Porto.
