@@ -1,4 +1,7 @@
-# Ficheiro de Python com constantes físicas que dão jeito em unidades SI
+# Ficheiro de Python com constantes físicas que dão jeito, em unidades SI
+
+# Velocidade da Luz
+c = 299792458
 
 # Constante de Planck
 h = 6.626e-34
