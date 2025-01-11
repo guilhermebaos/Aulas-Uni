@@ -15,7 +15,7 @@ q = 1.602_176_46e-19
 G = 6.674_30e-11
 
 # Número de avogrado
-N = 6.022_140_76e23
+Na = 6.022_140_76e23
 
 # Massa do eletrão
 me = 9.109_381_88e-31
@@ -37,3 +37,6 @@ atm = 101_325
 
 # Constante de Wien
 B = 2.897_771_955e-3
+
+
+print(3 * Na * kb / 4.18)
