@@ -1,6 +1,9 @@
 # Ficheiro de Python com constantes físicas que dão jeito, em unidades SI
 import numpy as np
 
+# Constantes Matemáticas
+pi = np.pi
+
 # Velocidade da Luz
 c = 299_792_458
 
@@ -9,7 +12,7 @@ h = 6.626_068e-34
 hbar = h / (2 * np.pi)
 
 # Carga elementar
-q = 1.602_176_46e-19
+qe = 1.602_176_46e-19
 
 # Constante gravitacional
 G = 6.674_30e-11
@@ -30,7 +33,7 @@ eps0 = 8.854_187_8e-12
 mu0 = 1.256_637e-6
 
 # Constante de Boltzmann
-kb = 1.380_650_3e-23
+kB = 1.380_650_3e-23
 
 # Uma atmosfera em Pascal
 atm = 101_325
@@ -39,4 +42,5 @@ atm = 101_325
 B = 2.897_771_955e-3
 
 
-print(3 * Na * kb / 4.18)
+T = 300
+print(kB * T / qe)
