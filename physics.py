@@ -40,7 +40,3 @@ atm = 101_325
 
 # Constante de Wien
 B = 2.897_771_955e-3
-
-
-T = 300
-print(kB * T / qe)
